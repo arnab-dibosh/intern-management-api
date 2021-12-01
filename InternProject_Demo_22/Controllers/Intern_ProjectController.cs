@@ -69,7 +69,7 @@ namespace InternProject_Demo_22.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /***
         // POST: api/Intern_Project
         [ResponseType(typeof(Intern_Project))]
         public IHttpActionResult PostIntern_Project(Intern_Project intern_Project)
@@ -84,6 +84,7 @@ namespace InternProject_Demo_22.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = intern_Project.id }, intern_Project);
         }
+        ***/
 
         // DELETE: api/Intern_Project/5
         [ResponseType(typeof(Intern_Project))]
@@ -113,6 +114,24 @@ namespace InternProject_Demo_22.Controllers
         private bool Intern_ProjectExists(int id)
         {
             return db.Intern_Project.Count(e => e.id == id) > 0;
+        }
+
+        [HttpPost]
+        //[ResponseType(typeof(Intern_Project))]
+        public IHttpActionResult PostIntern_List(List<Intern_Project> intern_Project)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            foreach (var item in intern_Project)
+            {
+                db.Intern_Project.Add(item);
+            }
+            
+            db.SaveChanges();
+
+            return Ok(intern_Project);
         }
     }
 }
