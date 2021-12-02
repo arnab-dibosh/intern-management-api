@@ -9,8 +9,8 @@ namespace InternProjectManagement.Models
     public class Intern_Project
     {
         [Key]
-        public int ID { get; set; }
-        public int Intern_ID { get; set; }
-        public int Project_ID { get; set; }
+        public int id { get; set; }
+        public int intern_id { get; set; }
+        public int project_id { get; set; }
     }
 }

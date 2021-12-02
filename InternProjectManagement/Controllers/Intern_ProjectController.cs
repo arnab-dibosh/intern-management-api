@@ -47,7 +47,7 @@ namespace InternProjectManagement.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutIntern_Project(int id, Intern_Project interns)
         {
-            if (id != interns.ID)
+            if (id != interns.id)
             {
                 return BadRequest();
             }
@@ -84,7 +84,7 @@ namespace InternProjectManagement.Controllers
             _context.Intern_Project.Add(interns);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetIntern_Project", new { id = interns.ID }, interns);
+            return CreatedAtAction("GetIntern_Project", new { id = interns.id }, interns);
         }
 
 
@@ -109,7 +109,7 @@ namespace InternProjectManagement.Controllers
 
         private bool Intern_ProjectExists(int id)
         {
-            return _context.Intern_Project.Any(e => e.ID == id);
+            return _context.Intern_Project.Any(e => e.id == id);
         }
     }
 }

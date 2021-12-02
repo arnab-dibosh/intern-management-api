@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InternProjectManagement.Migrations
 {
     [DbContext(typeof(InternProjectManagementContext))]
-    [Migration("20211201083409_Initial")]
+    [Migration("20211202122917_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,18 +37,18 @@ namespace InternProjectManagement.Migrations
 
             modelBuilder.Entity("InternProjectManagement.Models.Intern_Project", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Intern_ID")
+                    b.Property<int>("intern_id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Project_ID")
+                    b.Property<int>("project_id")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.HasKey("id");
 
                     b.ToTable("Intern_Project");
                 });

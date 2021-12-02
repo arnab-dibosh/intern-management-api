@@ -23,14 +23,14 @@ namespace InternProjectManagement.Migrations
                 name: "Intern_Project",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Intern_ID = table.Column<int>(type: "int", nullable: false),
-                    Project_ID = table.Column<int>(type: "int", nullable: false)
+                    intern_id = table.Column<int>(type: "int", nullable: false),
+                    project_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Intern_Project", x => x.ID);
+                    table.PrimaryKey("PK_Intern_Project", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
