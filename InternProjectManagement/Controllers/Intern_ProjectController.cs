@@ -42,12 +42,12 @@ namespace InternProjectManagement.Controllers
             return interns;
         }
 
-        // PUT: api/Interns/5
+        // PUT: api/Intern_Project/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutInterns(int id, Intern interns)
+        public async Task<IActionResult> PutIntern_Project(int id, Intern_Project interns)
         {
-            if (id != interns.id)
+            if (id != interns.ID)
             {
                 return BadRequest();
             }
@@ -60,7 +60,7 @@ namespace InternProjectManagement.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InternsExists(id))
+                if (!Intern_ProjectExists(id))
                 {
                     return NotFound();
                 }
@@ -89,27 +89,27 @@ namespace InternProjectManagement.Controllers
 
 
 
-       
 
-        // DELETE: api/Interns/5
+
+        // DELETE: api/Intern_Project/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteInterns(int id)
+        public async Task<IActionResult> DeleteIntern_Project(int id)
         {
-            var interns = await _context.Intern.FindAsync(id);
+            var interns = await _context.Intern_Project.FindAsync(id);
             if (interns == null)
             {
                 return NotFound();
             }
 
-            _context.Intern.Remove(interns);
+            _context.Intern_Project.Remove(interns);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool InternsExists(int id)
+        private bool Intern_ProjectExists(int id)
         {
-            return _context.Intern.Any(e => e.id == id);
+            return _context.Intern_Project.Any(e => e.ID == id);
         }
     }
 }
